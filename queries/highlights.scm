@@ -2,7 +2,7 @@
 (number_literal) @number
 (boolean_literal) @boolean
 (string_literal) @string
-(string_literal (escape_sequence) @number)
+(escape_sequence) @string.escape
 
 (call_expression
   name: (identifier) @function)
