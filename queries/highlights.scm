@@ -1,0 +1,45 @@
+(identifier) @variable
+(number_literal) @number
+(boolean_literal) @boolean
+(string_literal) @string
+(string_literal (escape_sequence) @number)
+
+(call_expression
+  name: (identifier) @function)
+
+[
+ "wait"
+ "then"
+] @keyword
+
+[
+ ";"
+ ","
+] @punctuation.delimiter
+
+[
+ "["
+ "]"
+ "("
+ ")"
+] @punctuation.bracket
+
+[
+ "?"
+ ":"
+ "&&"
+ "||"
+ "=="
+ "!="
+ "<"
+ ">"
+ "<="
+ ">="
+ "+"
+ "-"
+ "*"
+ "/"
+ "!"
+ "="
+] @operator
+
