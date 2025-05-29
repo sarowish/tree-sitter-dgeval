@@ -12,7 +12,7 @@ const PREC = {
   unary: 7,
   multiplicative: 6,
   additive: 5,
-  comperative: 4,
+  comparative: 4,
   logical: 3,
   ternary: 2,
   assign: 1,
@@ -61,7 +61,7 @@ module.exports = grammar({
     binary_expression: $ => {
       const table = [
         [PREC.logical, choice('&&', '||')],
-        [PREC.comperative, choice('==', '!=', '<', '>', '<=', '>=')],
+        [PREC.comparative, choice('==', '!=', '<', '>', '<=', '>=')],
         [PREC.additive, choice('+', '-')],
         [PREC.multiplicative, choice('*', '/')],
       ];
