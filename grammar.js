@@ -48,14 +48,19 @@ module.exports = grammar({
       $.number_literal,
       $.boolean_literal,
       $.string_literal,
+      $.ternary_expression,
       $.binary_expression,
       $.unary_expression,
       $.call_expression,
-      seq(optional($._expression), '[', $._expression, ']'),
-      prec.left(PREC.ternary, seq($._expression, '?', $._expression, ':', $._expression)),
+      $.array,
+      $.assignment_expression,
       seq('(', $._expression, ')'),
       prec.left(PREC.comma, seq($._expression, ',', $._expression)),
-      prec.right(PREC.assign, seq($._expression, '=', $._expression)),
+    ),
+
+    ternary_expression: $ => prec.left(
+      PREC.ternary,
+      seq($._expression, '?', $._expression, ':', $._expression)
     ),
 
     binary_expression: $ => {
@@ -78,12 +83,26 @@ module.exports = grammar({
       prec.right(PREC.unary, seq('-', $._expression)),
     ),
 
+
     call_expression: $ => prec.left(PREC.call, seq(
       field("name", $._expression),
       '(',
       optional($._expression),
       ')'
     )),
+
+    // captures both array literals and array access
+    array: $ => seq(
+      optional($._expression),
+      '[',
+      $._expression,
+      ']'
+    ),
+
+    assignment_expression: $ => prec.right(
+      PREC.assign,
+      seq($._expression, '=', $._expression)
+    ),
 
     number_literal: _ => {
       const decimalDigits = /\d+/;
