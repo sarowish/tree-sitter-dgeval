@@ -41,9 +41,9 @@ module.exports = grammar({
     _expression: ($) =>
       choice(
         $.identifier,
-        $.number_literal,
-        $.boolean_literal,
-        $.string_literal,
+        $.number,
+        $.boolean,
+        $.string,
         $.ternary_expression,
         $.binary_expression,
         $.unary_expression,
@@ -96,7 +96,7 @@ module.exports = grammar({
     assignment_expression: ($) =>
       prec.right(PREC.assign, seq($._expression, "=", $._expression)),
 
-    number_literal: (_) => {
+    number: (_) => {
       const decimalDigits = /\d+/;
       const nonzeroInteger = seq(/[1-9]/, optional(decimalDigits));
       const integer = choice("0", nonzeroInteger);
@@ -118,10 +118,9 @@ module.exports = grammar({
       return token(number);
     },
 
-    boolean_literal: (_) => choice("true", "false"),
+    boolean: (_) => choice("true", "false"),
 
-    string_literal: ($) =>
-      seq('"', repeat(choice(/[^\\"\n]/, $.escape_sequence)), '"'),
+    string: ($) => seq('"', repeat(choice(/[^\\"\n]/, $.escape_sequence)), '"'),
 
     escape_sequence: (_) =>
       token.immediate(seq("\\", choice(/x[0-9a-fA-F]{1,2}/, /[n\\"]/))),

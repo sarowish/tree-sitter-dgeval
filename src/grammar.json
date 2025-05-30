@@ -94,15 +94,15 @@
         },
         {
           "type": "SYMBOL",
-          "name": "number_literal"
+          "name": "number"
         },
         {
           "type": "SYMBOL",
-          "name": "boolean_literal"
+          "name": "boolean"
         },
         {
           "type": "SYMBOL",
-          "name": "string_literal"
+          "name": "string"
         },
         {
           "type": "SYMBOL",
@@ -476,7 +476,7 @@
         ]
       }
     },
-    "number_literal": {
+    "number": {
       "type": "TOKEN",
       "content": {
         "type": "SEQ",
@@ -646,7 +646,7 @@
         ]
       }
     },
-    "boolean_literal": {
+    "boolean": {
       "type": "CHOICE",
       "members": [
         {
@@ -659,7 +659,7 @@
         }
       ]
     },
-    "string_literal": {
+    "string": {
       "type": "SEQ",
       "members": [
         {

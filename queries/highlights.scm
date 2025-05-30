@@ -1,7 +1,7 @@
 (identifier) @variable
-(number_literal) @number
-(boolean_literal) @boolean
-(string_literal) @string
+(number) @number
+(boolean) @boolean
+(string) @string
 (escape_sequence) @string.escape
 
 (call_expression
