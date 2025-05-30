@@ -355,12 +355,12 @@
       ]
     },
     "unary_expression": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "PREC_RIGHT",
-          "value": 7,
-          "content": {
+      "type": "PREC_RIGHT",
+      "value": 7,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
             "type": "SEQ",
             "members": [
               {
@@ -372,12 +372,8 @@
                 "name": "_expression"
               }
             ]
-          }
-        },
-        {
-          "type": "PREC_RIGHT",
-          "value": 7,
-          "content": {
+          },
+          {
             "type": "SEQ",
             "members": [
               {
@@ -390,8 +386,8 @@
               }
             ]
           }
-        }
-      ]
+        ]
+      }
     },
     "call_expression": {
       "type": "PREC_LEFT",

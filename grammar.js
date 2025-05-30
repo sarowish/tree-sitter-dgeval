@@ -79,9 +79,9 @@ module.exports = grammar({
     },
 
     unary_expression: ($) =>
-      choice(
-        prec.right(PREC.unary, seq("!", $._expression)),
-        prec.right(PREC.unary, seq("-", $._expression)),
+      prec.right(
+        PREC.unary,
+        choice(seq("!", $._expression), seq("-", $._expression)),
       ),
 
     call_expression: ($) =>
