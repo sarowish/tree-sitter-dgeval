@@ -123,7 +123,7 @@ module.exports = grammar({
     string: ($) => seq('"', repeat(choice(/[^\\"\n]/, $.escape_sequence)), '"'),
 
     escape_sequence: (_) =>
-      token.immediate(seq("\\", choice(/x[0-9a-fA-F]{1,2}/, /[n\\"]/))),
+      token.immediate(seq("\\", choice(/x[0-9a-fA-F]{1,2}/, /[n\\"tr]/))),
 
     identifier: (_) => seq(/[a-z-A-z_]/, repeat(/[a-zA-Z0-9_]/)),
   },
