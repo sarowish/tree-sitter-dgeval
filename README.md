@@ -22,7 +22,7 @@ Start neovim and execute `:TSInstall dgeval` to install the parser.
 
 ### Add query files
 
-Copy the [queries/highlights.scm](./queries/highlights.scm) file to `XDG_CONFIG_HOME/nvim/queries/dgeval/` directory.
+Copy the [queries/highlights.scm](./queries/highlights.scm) file to `$XDG_CONFIG_HOME/nvim/queries/dgeval/` directory.
 
 ### Filetype detection
 
